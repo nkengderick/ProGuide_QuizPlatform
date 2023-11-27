@@ -1,0 +1,10 @@
+/* options.css */
+.Options {
+font-family: 'Courier New', Courier, monospace;
+}
+  
+  .Options input {
+    /* Ensure the input elements are visible and not obscured by other elements */
+    margin-right: 8px; /* Adjust as needed */
+  }
+  
