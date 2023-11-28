@@ -2,7 +2,6 @@ import './options.css'
 
 import React, { useState } from 'react'
 import { useQuizDataContext } from '../../hooks/useQuizDataContext'
-import { useHistory } from 'react-router-dom'
 
 const Options = () => {
     
@@ -29,21 +28,27 @@ const Options = () => {
     
     const handleOptionChange = (index) => {
         const optionValue = options[index]
+        
         setSelectedOptions({ ...selectedOptions, [currentQuestion]: optionValue})
         dispatch({
-            type: 'SET_CURRENT_ANSWER',
+            type: 'SET_USER_ANSWERS',
             payload: {
                 questionIndex: currentQuestion,
-                answerIndex: selectedOptions,
+                answerIndex: optionValue,
             },
         })
-    }
+    }  
+    // const shuffledOptions = options
+    //     .map((option) => ({ sort: Math.random(), value: option }))
+    //     .sort((a, b) => a.sort - b.sort)
+    //     .map((shuffledOption) => shuffledOption.value);
 
     return (
         <div className='Options'>
             {options.map((option, index) => (
                 <div key={index}>
-                       <input 
+                       <input
+                        className='option' 
                         key={currentQuiz.questions[currentQuestion].id}
                         type={currentQuiz.questions[currentQuestion].type === 'Single' ? 'radio' : 'checkbox'}
                         id={`option${index}`}

@@ -1,0 +1,38 @@
+.Result {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .result-btns button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+  }
+  .result-btns button a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .result-btns button a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .result-btns button:hover {
+    background-color: transparent;
+    color: #4caf50;
+    border: #4caf50 solid 1px;
+  }
+  

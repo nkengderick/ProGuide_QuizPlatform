@@ -34,11 +34,8 @@ const Navigation = () => {
 
     return (
         <div className='Navigation'>
-            <button onClick={handlePreviousQuestion} disabled={state.currentQuestion === 0}>Previous</button>
-            <button onClick={handleNextQuestion} disabled={currentQuestion === totalQuestions - 1}>Next</button>
-            {/* {currentQuestion === currentQuiz.questions.length - 1 && (
-                <button onClick={handleFinishQuiz}>Finished View Results</button>
-            )} */}
+            <button className='previous-button' onClick={handlePreviousQuestion} disabled={state.currentQuestion === 0}>Previous</button>
+            <button className='next-button' onClick={handleNextQuestion} disabled={currentQuestion === totalQuestions - 1}>Next</button>
         </div>
     )
 }

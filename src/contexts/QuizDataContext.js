@@ -20,13 +20,19 @@ export const quizDataReducer = (state, action) => {
         case 'SET_CURRENT_QUESTION':
           return { ...state, currentQuestion: action.payload };
         case 'SET_USER_ANSWERS':
-            // const updatedanswers = [...state.userAnswers]
-            // updatedanswers[state.currentQuestion] = action.payload
-            return { ...state, userAnswers: action.payload }
-        case "SET_CURRENT_ANSWER":
-            const { questionIndex, answerIndex } = action.payload;
-            return { ...state, userAnswers: { ...state.userAnswers, [`question${questionIndex}`]: answerIndex},}
-        
+            const existingAnswerIndex = state.userAnswers.findIndex((answer) => answer.questionIndex === action.payload.questionIndex);
+
+            if (existingAnswerIndex !== -1) {
+              state.userAnswers.splice(existingAnswerIndex, 1)
+            }
+                return {
+                       quizData: state.quizData,
+                       currentQuiz: state.currentQuiz,
+                       totalQuestions: state.totalQuestions,
+                       currentAnswer: state.currentAnswer,
+                       currentQuestion: state.currentQuestion,
+                       userAnswers: [ ...state.userAnswers, action.payload]
+                   } 
         default:
           return state;
       }
@@ -41,8 +47,6 @@ export const QuizDataProvider = ({ children }) => {
     
     const setQuiz = (quizIndex) => {
         dispatch({ type: 'SET_CURRENT_QUIZ', payload: quizData[quizIndex] })
-        // dispatch({ type: 'SET_CURRENT_QUESTION', payload: 0 })
-        // dispatch({ type: 'SET_USER_ANSWERS', payload: [] })
     }
     
     const nextQuestion = () => {
@@ -52,15 +56,9 @@ export const QuizDataProvider = ({ children }) => {
     const previousQuestion = () => {
         dispatch({ type: 'SET_CURRENT_QUESTION', payload: state.currentQuestion - 1 })
     }
-    
-    const handleRetakeQuiz = (quizIndex) => {
-        dispatch({ type: 'SET_CURRENT_QUIZ', payload: quizData[quizIndex] })
-        dispatch({ type: 'SET_CURRENT_QUESTION', payload: 0 })
-        dispatch({ type: 'SET_USER_ANSWERS', payload: [] })
-    }
 
     return (
-        <QuizDataContext.Provider value={{ dispatch, state, setQuiz, nextQuestion, previousQuestion, handleRetakeQuiz }}>
+        <QuizDataContext.Provider value={{ dispatch, state, setQuiz, nextQuestion, previousQuestion }}>
             {children}
         </QuizDataContext.Provider>
     )

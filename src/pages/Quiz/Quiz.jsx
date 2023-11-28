@@ -27,7 +27,7 @@ const Quiz = () => {
     const handleFinishQuiz = () => {
         setQuizFinished(true)
         console.log("User Answers:", userAnswers)
-        history.push('/result', { userAnswer: JSON.stringify(userAnswers) })
+        history.push('/result')
     }
 
     const handleTimeout = () => {
@@ -59,9 +59,7 @@ const Quiz = () => {
                 nextQuestion={nextQuestion}
                 previousQuestion={previousQuestion}
             />
-            {currentQuestion === currentQuiz.questions.length - 1 && (
-                <button onClick={handleFinishQuiz}>Finished View Results</button>
-            )}
+            <button className='finish-button' onClick={handleFinishQuiz} disabled={currentQuestion !== currentQuiz.questions.length-1}>Finished View Results</button>
         </div>
     )
 }

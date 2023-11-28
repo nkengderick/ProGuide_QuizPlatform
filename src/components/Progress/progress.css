@@ -1,0 +1,32 @@
+.Progress {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+.text-container {
+    display: flex;
+    justify-content: space-between;
+}
+.bar-container {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc
+}
+.progress-bar {
+    background-color: #4caf50;
+    height: 15px;
+    border-radius: 5px;
+}
+
+.question-number {
+    float: left;
+    margin-right: 20px;
+}
+
+.answered-questions {
+    float: right;
+}

@@ -1,0 +1,50 @@
+/* resultsummary.css */
+
+.ResultSummary {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.ResultSummary h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.ResultSummary p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.question-details {
+  margin-top: 20px;
+}
+
+.question-details > div {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.correct {
+  background-color: #dff0d8; /* Light green for correct answers */
+}
+
+.incorrect {
+  background-color: #f2dede; /* Light red for incorrect answers */
+}
+
+.unanswered {
+  background-color: #f0f0f0; /* Light red for incorrect answers */
+}
+
+.question-details p {
+  margin: 8px 0;
+}

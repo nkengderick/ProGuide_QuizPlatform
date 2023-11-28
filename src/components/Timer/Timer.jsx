@@ -27,7 +27,7 @@ const Timer = ({ totalTime, onTimeout }) => {
   };
 
   return (
-    <div>
+    <div className='Timer'>
       <p>Total Time Remaining: {formatTime(timeRemaining)}</p>
       <p>Time per Question: {formatTime(timePerQuestion)}</p>
     </div>

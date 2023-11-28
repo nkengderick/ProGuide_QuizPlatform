@@ -1,0 +1,84 @@
+.Home {
+    text-align: center;
+  }
+  
+  .hero-section {
+    background-color: #f2f2f2;
+    padding: 50px 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 36px;
+  }
+  
+  .hero-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-section img {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .call-to-action {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #4caf50;
+  }
+  
+  .btn-secondary {
+    background-color: #555;
+  }
+  
+  .quiz-list {
+    margin-top: 50px;
+  }
+  
+  .quiz-list h2 {
+    font-size: 24px;
+  }
+  
+  .quiz-list p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-list ul {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .quiz-list a {
+    display: block;
+    border: 1px solid;
+    margin-bottom: 10px;
+    text-align: left;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .quiz-list a:hover {
+    color: #4caf50;
+    background-color: #555;
+  }

@@ -12,8 +12,13 @@ const Progress = () => {
 
   return (
     <div className='Progress'>
-        <h2>Question {currentQuiz.questions[currentQuestion].id} of {totalQuestions}</h2>
-        <h2>Percentage Completed : {percentageComplete}%</h2>
+      <div className="text-container">
+        <h2 className='question-number'>Question {currentQuiz.questions[currentQuestion].id} of {totalQuestions}</h2>
+        <h2 className='percent-complete'>Completed : {percentageComplete}%</h2>
+      </div>
+      <div className='bar-container'>
+        <div className='progress-bar' style={{ width: `${percentageComplete}%` }}></div>
+      </div>
     </div>
   )
 }

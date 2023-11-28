@@ -113,7 +113,75 @@ const quizData = [
         type: 'single'
       },
     ]
-  }
+  },
+  {
+    id: 4,
+    title: 'Mechanics and Force Directions',
+    questions: [
+      {
+        id: 1,
+        question: 'Identify the direction of the force acting on the ball:',
+        imageUrl: 'ball',
+        answerOptions: ['Upward', 'Downward', 'Left', 'Right'],
+        correctAnswer: 'Left',
+        type: 'single'
+      },
+      {
+        id: 2,
+        question: 'Identify the direction of the force acting on the block:',
+        imageUrl: 'block',
+        answerOptions: ['Upward', 'Downward', 'Left', 'Right'],
+        correctAnswer: 'Right',
+        type: 'single'
+      },
+      {
+        id: 3,
+        question: 'Identify the direction of the force acting on the book:',
+        imageUrl: 'book',
+        answerOptions: ['Upward', 'Downward', 'Left', 'Right'],
+        correctAnswer: 'Left',
+        type: 'single'
+      },
+    ]
+  },
+  {
+    id: 5,
+    title: "Equations",
+    questions: [
+      {
+        id: 1,
+        question: "Solve the quadratic equation: ",
+        type: "Multiple",
+        equation: "x^2 + 2x - 3 = 0",
+        answerOptions: ["x = 1", "x = -1", "x = 3", "x = -3"],
+        correctAnswer: "x = 1",
+      },
+      {
+        id: 2,
+        question: "Solve the system of equations: ",
+        type: "Multiple",
+        equation: "2x + 3y = 14...(i) x - y = 5...(ii)",
+        answerOptions: ["x = 2, y = 4", "x = 1, y = 3", "x = 3, y = 1", "x = 4, y = 2"],
+        correctAnswer: "x = 4, y = 2",
+      },
+      {
+        id: 3,
+        question: "Solve the system of equations: ",
+        type: "Multiple",
+        equation: "3x + 2y = -4...(i) 5x - y = 10...(ii)",
+        answerOptions: ["x = 2, y = -1", "x = -1, y = 2", "x = 1, y = -2", "x = -2, y = 1"],
+        correctAnswer: "x = 2, y = -1",
+      },
+      {
+        id: 4,
+        question: "Solve the linear equation: ",
+        type: "Multiple",
+        equation: "4x - 3 = 7",
+        answerOptions: ["x = 5", "x = 2.5", "x = 1.5", "x = 0.5"],
+        correctAnswer: "x = 2.5",
+      },
+    ],
+  },
 ];
 
 export default quizData;
