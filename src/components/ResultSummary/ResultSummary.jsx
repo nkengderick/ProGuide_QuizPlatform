@@ -7,10 +7,16 @@ import ScoreChart from '../ScoreChart/ScoreChart'
 const ResultSummary = () => {
 
     const { state } = useQuizDataContext()
-    const { userAnswers, currentQuestion, currentQuiz, totalQuestions } = state
+    const { userAnswers, currentQuiz, totalQuestions, timeSpentPerQuestion } = state
     
     const [attemptedQuestions, setAttemptedQuestions] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0)
+
+    const formatTime = (seconds) => {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    }
 
     useEffect(() => {
 
@@ -69,6 +75,7 @@ const ResultSummary = () => {
             <p>Correct Answer: {question.correctAnswer}</p>
             <p>{userAnswers[index]?.answerIndex === question.correctAnswer ? 'Correct' : userAnswers[index] ? 'incorrect' : 'unanswered'}</p>
             <p>Points Gained: {userAnswers[index]?.answerIndex === question.correctAnswer ? 1 : 0}</p>
+            <p>Time Used: {userAnswers[index]?.answerIndex ? formatTime(timeSpentPerQuestion[index]) : 'Not Answered'}</p>
           </div>
         ))}
       </div>

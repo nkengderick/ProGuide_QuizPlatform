@@ -48,6 +48,9 @@
   
   .quiz-list {
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .quiz-list h2 {
@@ -60,6 +63,7 @@
   }
   
   .quiz-list ul {
+    align-self: center;
     display: flex;
     width: 60%;
     flex-direction: column;
@@ -71,7 +75,7 @@
     display: block;
     border: 1px solid;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
     font-size: 18px;
     color: #333;

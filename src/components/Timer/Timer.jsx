@@ -1,15 +1,23 @@
+import { useQuizDataContext } from '../../hooks/useQuizDataContext';
 import './timer.css'
 
 import React, { useState, useEffect } from 'react';
 
 const Timer = ({ totalTime, onTimeout }) => {
   const [timeRemaining, setTimeRemaining] = useState(totalTime);
-  const [timePerQuestion, setTimePerQuestion] = useState(totalTime);
+  const {state, dispatch} = useQuizDataContext()
+  const currentQuestion = state
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
       setTimeRemaining((prevTime) => prevTime - 1);
-      setTimePerQuestion((prevTime) => prevTime - 1);
+      dispatch({
+        type: 'SET_TIME_SPENT_PER_QUESTION',
+        payload: {
+          index: currentQuestion,
+          timeSpent: totalTime - timeRemaining
+        }
+      })
     }, 1000);
 
     if (timeRemaining === 0) {
@@ -18,7 +26,8 @@ const Timer = ({ totalTime, onTimeout }) => {
     }
 
     return () => clearInterval(timerInterval);
-  }, [timeRemaining, onTimeout]);
+
+  }, [timeRemaining, totalTime, currentQuestion, onTimeout, dispatch]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
@@ -29,7 +38,6 @@ const Timer = ({ totalTime, onTimeout }) => {
   return (
     <div className='Timer'>
       <p>Total Time Remaining: {formatTime(timeRemaining)}</p>
-      <p>Time per Question: {formatTime(timePerQuestion)}</p>
     </div>
   );
 };

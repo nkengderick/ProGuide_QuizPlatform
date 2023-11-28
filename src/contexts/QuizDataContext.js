@@ -11,6 +11,7 @@ export const initialState = {
     totalQuestions: 0,
     currentAnswer: "",
     userAnswers: [],
+    timeSpentPerQuestion: [],
 }
 
 export const quizDataReducer = (state, action) => {
@@ -19,20 +20,22 @@ export const quizDataReducer = (state, action) => {
           return { ...state, currentQuiz: action.payload, currentQuestion: 0, totalQuestions: action.payload.questions.length };
         case 'SET_CURRENT_QUESTION':
           return { ...state, currentQuestion: action.payload };
-        case 'SET_USER_ANSWERS':
-            const existingAnswerIndex = state.userAnswers.findIndex((answer) => answer.questionIndex === action.payload.questionIndex);
-
-            if (existingAnswerIndex !== -1) {
-              state.userAnswers.splice(existingAnswerIndex, 1)
-            }
+          case 'SET_USER_ANSWERS':
+              const existingAnswerIndex = state.userAnswers.findIndex((answer) => answer.questionIndex === action.payload.questionIndex);
+              
+              if (existingAnswerIndex !== -1) {
+                  state.userAnswers.splice(existingAnswerIndex, 1)
+                }
                 return {
-                       quizData: state.quizData,
-                       currentQuiz: state.currentQuiz,
-                       totalQuestions: state.totalQuestions,
-                       currentAnswer: state.currentAnswer,
-                       currentQuestion: state.currentQuestion,
-                       userAnswers: [ ...state.userAnswers, action.payload]
-                   } 
+                    quizData: state.quizData,
+                    currentQuiz: state.currentQuiz,
+                    totalQuestions: state.totalQuestions,
+                    currentAnswer: state.currentAnswer,
+                    currentQuestion: state.currentQuestion,
+                    userAnswers: [ ...state.userAnswers, action.payload]
+                } 
+        case 'SET_TIME_SPENT_PER_QUESTION':
+             return { ...state, timeSpentPerQuestion: action.payload };
         default:
           return state;
       }
